@@ -18,5 +18,10 @@ is to blacken the cells such that:
 ## Usage
 
 ```sh
-python3 solver.py < puzzles/example1.txt
+# Recursive brute-force solver
+python3 rec_solver.py < puzzles/example1.txt
+
+# z3 SMT solver
+# Requires z3: pip install z3-solver
+python3 z3_solver.py < puzzles/example1.txt
 ```

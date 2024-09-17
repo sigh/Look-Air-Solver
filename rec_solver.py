@@ -1,18 +1,7 @@
 """
 Solver for Look-Air puzzles.
 
-Usage: python3 solver.py < puzzle.txt
-
-The puzzle consists of a grid of cells, some of which contain numbers. The
-goal is to blacken the cells such that:
-
-- Black cells form an area of square shape.
-- No black areas touch each other horizontally or vertically (only diagonally).
-- Black areas of the same size must not "see" each other: horizontal or
-  vertical lines between two black areas must contain at least one black area
-  of other size.
-- Each number shows how many of the five cells (the one with the number plus
-  the four orthogonally neighboring cells) should be blacken.
+Usage: python3 rec_solver.py < puzzle.txt
 """
 
 import copy
@@ -66,9 +55,6 @@ class Grid:
         for i in range(row, row + square_size):
             for j in range(col, col + square_size):
                 self.array[i][j] = value
-
-    def all_coords(self) -> list[tuple[int, int]]:
-        return [(row, col) for row in range(self.height) for col in range(self.height)]
 
     def index_to_coords(self, index) -> tuple[int, int]:
         """Convert a cell index to grid coordinates"""
